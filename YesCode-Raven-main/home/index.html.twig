@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Twig</title>
+</head>
+<body>
+    <h1>Page d'accueil</h1> <!-- Ajoutez un titre approprié pour votre page d'accueil -->
+
+    {% if user.isConnected %}
+        <button>Déconnexion</button>
+    {% else %}
+        <button>Connexion</button>
+    {% endif %}
+
+    {% set author = "Loïs Lane" %}
+    {% set article = {
+        "title": "Théorie du complot",
+        "intro": "Théorie du complot fascine depuis des lustres ! On vous dit tout.",
+        "content": "Bla bla bla, pa pa pa, po po po"
+    } %}
+
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.intro }}</p>
+    <p>{{ article.content }}</p>
+
+    {% set games = ["Starcraft 2", "BF6", "Métro Exodus"] %}
+
+    <h3>Jeux :</h3>
+    <ul>
+        {% for game in games %}
+            <li>{{ game }}</li>
+        {% endfor %}
+    </ul>
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>{{ truc }}</h1>
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.intro }}</p>
+    <p>{{ article.content }}</p>
+
+    {% if user.isConnected %}
+        <button>Déconnexion</button>
+    {% else %}
+        <button>Connexion</button>
+    {% endif %}
+
+    <h3>Jeux :</h3>
+    <ul>
+        {% for game in games %}
+            <li>{{ game }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+$author ="Loîs Lane
+$article = new stdClass();
+$article->title "Théorie du complot";
+$article->intro="Thérorie du complot";
+$article->intro ="Fascine depuis des lustres ! on vous dis tout;
+$article ->="Bla bla bla , Pa pa pa , Po po po";
+
+return $this ->render('home/index.html.twig,[
+'truc'=> "Page d'acceuil",
+"article"=> $article,
+"auteur" => $author
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+])
